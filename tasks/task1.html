@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@800&family=Montserrat:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <title>Задача 1</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <h2>Задача 1.</h2>
+      <p>Розробити калькулятор.</p>
+      <div>
+        <label>
+          <h3>first number</h3>
+          <input
+            id="first"
+            type="number"
+            placeholder="type first number here"
+            value="0"
+          />
+        </label>
+        <label>
+          <h3>second number</h3>
+          <input
+            id="second"
+            type="number"
+            placeholder="type second number here"
+            value="0"
+          />
+        </label>
+        <div id="container">
+          <button id="sum"><h3>додати</h3></button>
+          <button id="minus"><h3>відняти</h3></button>
+          <button id="multiply">
+            <h3>помножити</h3>
+          </button>
+          <button id="divide">
+            <h3>поділити</h3>
+          </button>
+        </div>
+        <label>
+          <h3>результат</h3>
+          <input id="result" type="number" placeholder="result" value="0" />
+        </label>
+        <script>
+          function sum() {
+            const num1 = parseFloat(document.getElementById("first").value)
+            const num2 = parseFloat(document.getElementById("second").value)
+            const sum = num1 + num2
+            document.getElementById("result").value = sum
+          }
+          function minus() {
+            const num1 = parseFloat(document.getElementById("first").value)
+            const num2 = parseFloat(document.getElementById("second").value)
+            const minus = num1 - num2
+            document.getElementById("result").value = minus
+          }
+          function multiply() {
+            const num1 = parseFloat(document.getElementById("first").value)
+            const num2 = parseFloat(document.getElementById("second").value)
+            const multiply = num1 * num2
+            document.getElementById("result").value = multiply
+          }
+          function divide() {
+            const num1 = parseFloat(document.getElementById("first").value)
+            const num2 = parseFloat(document.getElementById("second").value)
+            const divide = num1 / num2
+            document.getElementById("result").value = divide
+          }
+          window.onload = function () {
+            document.getElementById("sum").onclick = sum
+            document.getElementById("minus").onclick = minus
+            document.getElementById("multiply").onclick = multiply
+            document.getElementById("divide").onclick = divide
+          }
+        </script>
+      </div>
+    </div>
+  </body>
+</html>

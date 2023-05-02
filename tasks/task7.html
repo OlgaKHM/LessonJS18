@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@800&family=Montserrat:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <title>Задача 7</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <h2>Задача 7.</h2>
+      <p>
+        Подорож складається з 3 етапів. На кожному етапі користувач може вибрати
+        один з видів транспорту (авто, автобус, літак - випадаючий список),
+        харчування (сніданок, обід, вечеря – checkbоx) та одного з 3-х
+        гідів(використати - radio buttons). Ціни визначте самі. Підрахувати
+        загальну вартість.
+      </p>
+      <dir class="dropdown">
+        <h3>вид транспорту</h3>
+        <select class="transport">
+          <option value="2000">авто</option>
+          <option value="1000">автобус</option>
+          <option value="3000">літак</option>
+        </select>
+      </dir>
+      <div class="checkbox">
+        <h3>харчування</h3>
+        <label>сніданок <input type="checkbox" value="200" /></label>
+        <label>обід <input type="checkbox" value="400" /></label>
+        <label>вечеря <input type="checkbox" value="350" /></label>
+      </div>
+      <div class="guide">
+        <h3>гід</h3>
+        <div>
+          <input type="radio" id="guide1" value="1500" />
+          <label for="guide1">guide1</label>
+        </div>
+        <div>
+          <input type="radio" id="guide2" value="1700" />
+          <label for="guide1">guide2</label>
+        </div>
+        <div>
+          <input type="radio" id="guide3" value="1850" />
+          <label for="guide1">guide3</label>
+        </div>
+      </div>
+      <button class="getsum"><h3>підрахувати</h3></button>
+      <h3>загальна вартість : <span class="sum"></span></h3>
+      <script>
+        function getTotalSum() {
+          const transportCost = parseFloat(
+            document.querySelector(".transport").value
+          )
+          let getSum = transportCost
+          const inputList = document.querySelectorAll("input")
+          const sum = document.querySelector(".sum")
+          for (let input of inputList) {
+            if (input.checked) getSum += parseInt(input.value)
+          }
+          sum.innerHTML = getSum
+        }
+        document.querySelector(".getsum").onclick = getTotalSum
+
+        //    document.getElementById("getsum").onclick = function () {
+        //     let sum = 0
+        //      sum += parseInt(document.getElementsByClassName("transport").value)
+        //      console.log(sum)
+        //      let inp = document.getElementsByTagName("input")
+        //      for (let input of inp) {
+        //        if (input.checked) sum += parseInt(input.value)
+        //      }
+        //      let h3 = document.createElement("h3")
+        //      h3.innerText = `загальна вартість ${sum}`
+        //      document.querySelector(".wrapper").append(h3)
+        //    }
+        //    window.onload = function () {
+        //     document.documentElement.classList.add("loaded")
+        //   }
+      </script>
+    </div>
+  </body>
+</html>

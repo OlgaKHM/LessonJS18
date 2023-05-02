@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@800&family=Montserrat:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <title>Задача 2</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <h2>Задача 2.</h2>
+      <p>Зробити конвертер валют (курси валют – константи у скрипті).</p>
+      <div>
+        <label>
+          <h3>сума в грн.</h3>
+          <input id="grn" type="number" value="0" />
+        </label>
+        <div id="container">
+          <button id="convector" onclick="convector()">
+            <h3>конвертер валют</h3>
+          </button>
+        </div>
+      </div>
+      <label>
+        <h3>сума в €</h3>
+        <input id="euro" type="number" value="0" />
+      </label>
+      <label>
+        <h3>сума в $</h3>
+        <input id="dollar" type="number" value="0" />
+      </label>
+      <script>
+        function convector() {
+          const grn = parseFloat(document.getElementById("grn").value)
+          const euro = 40
+          const dollar = 37
+          document.getElementById("euro").value = (grn / euro).toFixed(2)
+          document.getElementById("dollar").value = (grn / dollar).toFixed(2)
+        }
+      </script>
+    </div>
+  </body>
+</html>

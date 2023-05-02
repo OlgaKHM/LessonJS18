@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@800&family=Montserrat:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <title>Задача 4</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <h2>Задача 4.</h2>
+      <p>
+        Наперед задано у скрипті масив зі списком бажань. Після завантаження
+        сторінки випадковим чином вибираються 3 і відображаються у окремих div
+        (їх треба створити і додати на сторінку).
+      </p>
+
+      <script>
+        const wishList = [
+          "wish1",
+          "wish2",
+          "wish3",
+          "wish4",
+          "wish5",
+          "wish6",
+          "wish7",
+          "wish8",
+          "wish9",
+          "wish10",
+        ]
+        getWish(wishList)
+        function getWish(list) {
+          for (let i = 0; i < 3; i++) {
+            let randomNum = Math.floor(Math.random() * wishList.length)
+            let div = document.createElement("div")
+            div.innerHTML = list[randomNum]
+            document.body.append(div)
+            list.splice(randomNum, 1)
+          }
+        }
+      </script>
+    </div>
+  </body>
+</html>

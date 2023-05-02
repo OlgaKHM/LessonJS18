@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@800&family=Montserrat:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <title>Задача 6</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <h2>Задача 6.</h2>
+      <p>
+        Користувач задає кількість оцінок і натискає на кнопку «get table». В
+        результаті формується таблиця з input, куди користувач вводить оцінки.
+        Після цього натискає на кнопку “get sum” і знаходить середнє значення.
+      </p>
+      <label>
+        <h3>кількість оцінок</h3>
+        <input id="numberOfRatings" type="number" value="0" />
+      </label>
+      <div id="container">
+        <button id="getTable">
+          <h3>get table</h3>
+        </button>
+      </div>
+
+      <script>
+        function tableFormation() {
+          const numberOfRatings = parseFloat(
+            document.getElementById("numberOfRatings").value
+          )
+          const table = document.createElement("table")
+          document.body.append(table)
+          for (let i = 0; i < numberOfRatings; i++) {
+            const tr = document.createElement("tr")
+            table.prepend(tr)
+            const tableInput = document.createElement("input")
+            tableInput.classList.add("gradeInput")
+            tr.prepend(tableInput)
+          }
+          const buttonSum = document.createElement("button")
+          buttonSum.classList.add("buttonSum")
+          buttonSum.innerText = "get sum"
+          table.after(buttonSum)
+          document.querySelector(".buttonSum").onclick = averageValue
+        }
+        function averageValue() {
+          let averageValue = 0
+          const gradeInput = document.querySelectorAll(".gradeInput")
+          for (const input of gradeInput) {
+            averageValue += parseInt(input.value) / gradeInput.length
+          }
+          const newDiv = document.createElement("div")
+          newDiv.classList.add("result")
+          document.body.append(newDiv)
+          const newH = document.createElement("h3")
+          newH.innerText = `середнє значення: ${averageValue}`
+          newDiv.append(newH)
+        }
+        window.onload = function () {
+          document.querySelector("#getTable").onclick = tableFormation
+        }
+      </script>
+    </div>
+  </body>
+</html>
